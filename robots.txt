@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pde-edu.github.io/program-disi-etkinlikler/sitemap.xml

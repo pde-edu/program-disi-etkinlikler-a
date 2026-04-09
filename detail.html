@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etkinlik Detay</title>
+<header>
+  <a href="index.html">← Ana Sayfaya Dön</a>
+</header>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 id="detailTitle"></h1>
+
+<p id="detailText"></p>
+
+<div class="detail-gallery" id="detailGallery"></div>
+<section class="detail-section">
+  <div class="container">
+
+    <button class="back-btn" onclick="history.back()">← Geri Dön</button>
+
+    <div class="detail-header">
+      <img id="detailHeroImage" src="">
+      <div class="detail-title-wrapper">
+        <h1 id="detailTitle"></h1>
+        <div class="accent-line"></div>
+        <div class="detail-meta">
+          <span id="detailDate" class="badge"></span>
+          <span id="detailCategory" class="badge secondary"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-card fade-in">
+      <p id="detailText"></p>
+    </div>
+
+    <div id="detailGallery" class="detail-gallery"></div>
+
+  </div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>
