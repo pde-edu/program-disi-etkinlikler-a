@@ -87,47 +87,135 @@
 ========================= -->
 <section class="gallery-section">
 
-  <!-- BELİRLİ GÜN VE HAFTALAR -->
-  <div id="gallery1-tr">
+   <div id="gallery1-tr">
     <h2>Belirli Gün ve Haftalar Etkinlikleri</h2>
+
     <div class="scroll-wrapper">
-      <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
-      <div class="horizontal-scroll auto-scroll" id="gallery-belirli">
-        <!-- Kartlar JS ile buraya eklenecek -->
-      </div>
-      <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
-    </div>
-  </div>
-  <div id="gallery1-en" style="display:none;">
-    <h2>Special Days and Weeks Activities</h2>
-    <div class="scroll-wrapper">
-      <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
-      <div class="horizontal-scroll auto-scroll" id="gallery-belirli-en">
-        <!-- Kartlar JS ile buraya eklenecek -->
-      </div>
-      <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
-    </div>
+    <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
+
+    <div class="horizontal-scroll auto-scroll">
+
+  <div class="card" onclick="openModal(this, 'etkinlik1')">
+    <img src="assets/images/placeholder.jpg">
+    <div class="overlay">Etkinlik 1</div>
   </div>
 
-  <!-- BAYRAMLAR -->
-  <div id="gallery2-tr">
-    <h2>Bayram Etkinlikleri</h2>
-    <div class="scroll-wrapper">
-      <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
-      <div class="horizontal-scroll auto-scroll" id="gallery-bayramlar">
-        <!-- Kartlar JS ile buraya eklenecek -->
+  <div class="card" onclick="openModal(this, 'etkinlik2')">
+    <img src="assets/images/placeholder.jpg">
+    <div class="overlay">Etkinlik 2</div>
+  </div>
+
+  <div class="card" onclick="openModal(this)">
+    <img src="assets/images/placeholder.jpg">
+    <div class="overlay">Örnek Etkinlik 3</div>
+  </div>
+
+</div>
+    <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
+  </div>
+  </div>
+
+  <div id="gallery1-en" style="display:none;">
+    <h2>Special Days and Weeks Activities</h2>
+
+  <div class="scroll-wrapper">
+    <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
+
+    <div class="horizontal-scroll auto-scroll">
+
+     <div class="card" onclick="openModal(this, 'etkinlik1')">
+    <img src="assets/images/placeholder.jpg">
+    <div class="overlay">Activity 1</div>
+  </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="Etkinlik">
+        <div class="overlay">Örnek Etkinlik 2</div>
       </div>
-      <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="Etkinlik">
+        <div class="overlay">Örnek Etkinlik 3</div>
+      </div>
+
+    </div>
+
+    <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
+  </div>
+  </div>
+  <div id="gallery2-tr">
+    <h2>Millî ve Resmî Bayram Etkinlikleri</h2>
+
+     <div class="scroll-wrapper">
+    <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
+
+    <div class="horizontal-scroll auto-scroll">
+
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">23 Nisan Ulusal Egemenlik ve Çocuk Bayramı</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">23 Nisan Ulusal Egemenlik ve Çocuk Bayramı</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">23 Nisan Ulusal Egemenlik ve Çocuk Bayramı</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">23 Nisan Ulusal Egemenlik ve Çocuk Bayramı</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">23 Nisan Ulusal Egemenlik ve Çocuk Bayramı</div>
+      </div>
+       <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="19 Mayıs">
+        <div class="overlay">19 Mayıs Atatürk’ü Anma Gençlik ve Spor Bayramı</div>
+      </div>
+      </div>
+ <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
+  </div>
     </div>
   </div>
-  <div id="gallery2-en" style="display:none;">
-    <h2>Holiday Events</h2>
+<div id="gallery2-en" style="display:none;">
+    <h2>National Days and Holidays</h2>
+
     <div class="scroll-wrapper">
-      <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
-      <div class="horizontal-scroll auto-scroll" id="gallery-bayramlar-en">
-        <!-- Kartlar JS ile buraya eklenecek -->
+    <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
+
+    <div class="horizontal-scroll auto-scroll">
+
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
       </div>
-      <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+       <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="19 Mayıs">
+        <div class="overlay">May 19th Atatürk’s Remembrance, Youth and Sports Day</div>
+      </div>
+      </div>
+ <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
+  </div>
+
     </div>
   </div>
 
@@ -137,7 +225,30 @@
     <div class="scroll-wrapper">
       <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
       <div class="horizontal-scroll auto-scroll" id="gallery-okuldisi">
-        <!-- Kartlar JS ile buraya eklenecek -->
+        <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+       <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="19 Mayıs">
+        <div class="overlay">May 19th Atatürk’s Remembrance, Youth and Sports Day</div>
+      </div>
       </div>
       <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
     </div>
@@ -147,7 +258,30 @@
     <div class="scroll-wrapper">
       <button class="scroll-btn left" onclick="scrollGallery(this, -1)">❮</button>
       <div class="horizontal-scroll auto-scroll" id="gallery-okuldisi-en">
-        <!-- Kartlar JS ile buraya eklenecek -->
+        <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+      <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="23 Nisan">
+        <div class="overlay">April 23rd National Sovereignty and Children's Day</div>
+      </div>
+       <div class="card" onclick="openModal(this)">
+        <img src="assets/images/placeholder.jpg" alt="19 Mayıs">
+        <div class="overlay">May 19th Atatürk’s Remembrance, Youth and Sports Day</div>
+      </div>
       </div>
       <button class="scroll-btn right" onclick="scrollGallery(this, 1)">❯</button>
     </div>
