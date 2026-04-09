@@ -6,7 +6,7 @@ let autoScrollIntervals = [];
 let autoScrollPaused = false;
 let pauseTimeout;
 let selectedEventId = null;
-let selectedImageIndex = 0; // Modal içinde açık olan görselin indexi
+let selectedImageIndex = 0;
 
 /* =========================
    ETKİNLİK VERİLERİ
@@ -42,17 +42,18 @@ function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem("selectedLang", lang);
 
-    // Metin bloklarını göster/gizle
-    ["about","hero","gallery1","gallery2"].forEach(section => {
+    const sections = ["about","hero","gallery1","gallery2","gallery3"];
+
+    sections.forEach(section => {
         const tr = document.getElementById(section + "-tr");
         const en = document.getElementById(section + "-en");
-        if(tr) tr.style.display = lang==="tr"?"block":"none";
-        if(en) en.style.display = lang==="en"?"block":"none";
+
+        if (tr) tr.style.display = (lang === "tr") ? "block" : "none";
+        if (en) en.style.display = (lang === "en") ? "block" : "none";
     });
 
-    // Detay butonunu güncelle
     const btn = document.getElementById("detailBtn");
-    if(btn) btn.innerText = lang==="tr" ? "Devamını Gör" : "See Details";
+    if (btn) btn.innerText = lang === "tr" ? "Devamını Gör" : "See Details";
 
     renderGallery(lang);
 }
@@ -62,28 +63,30 @@ function setLanguage(lang) {
 ========================= */
 function scrollGallery(button, direction) {
     const wrapper = button.closest(".scroll-wrapper");
-    if(!wrapper) return;
+    if (!wrapper) return;
+
     const gallery = wrapper.querySelector(".horizontal-scroll");
-    if(!gallery) return;
+    if (!gallery) return;
 
     gallery.scrollBy({ left: direction * 320, behavior: "smooth" });
 
-    // Otomatik scrollu geçici durdur
     autoScrollPaused = true;
     clearTimeout(pauseTimeout);
-    pauseTimeout = setTimeout(()=> autoScrollPaused=false, 3000);
+    pauseTimeout = setTimeout(() => autoScrollPaused = false, 2500);
 }
 
 /* =========================
-   MODAL KONTROLÜ
+   MODAL
 ========================= */
-function openModal(card, eventId, index=0) {
-    if(!eventId || !events[eventId]) return;
+function openModal(card, eventId, index = 0) {
+    if (!events[eventId]) return;
+
     selectedEventId = eventId;
     selectedImageIndex = index;
     autoScrollPaused = true;
 
     const event = events[eventId];
+
     document.getElementById("modalImage").src = event.images[selectedImageIndex];
     document.getElementById("modalDescription").innerText = event.shortDesc[currentLang];
     document.getElementById("imageModal").style.display = "block";
@@ -95,38 +98,50 @@ function closeModal() {
 }
 
 function nextImage() {
-    if(!selectedEventId) return;
-    const images = events[selectedEventId].images;
+    const images = events[selectedEventId]?.images;
+    if (!images) return;
+
     selectedImageIndex = (selectedImageIndex + 1) % images.length;
     document.getElementById("modalImage").src = images[selectedImageIndex];
 }
 
 function prevImage() {
-    if(!selectedEventId) return;
-    const images = events[selectedEventId].images;
+    const images = events[selectedEventId]?.images;
+    if (!images) return;
+
     selectedImageIndex = (selectedImageIndex - 1 + images.length) % images.length;
     document.getElementById("modalImage").src = images[selectedImageIndex];
 }
 
 /* =========================
-   OTOMATİK SCROLL
+   AUTO SCROLL
 ========================= */
 function autoScrollGallery() {
-    autoScrollIntervals.forEach(i => clearInterval(i));
+    autoScrollIntervals.forEach(clearInterval);
     autoScrollIntervals = [];
 
     const galleries = document.querySelectorAll(".auto-scroll");
+
+    if (!galleries.length) return;
+
     const isMobile = window.matchMedia("(pointer: coarse)").matches;
-    if(isMobile) return;
+    if (isMobile) return;
 
     galleries.forEach(gallery => {
         let scrollAmount = 0;
-        const interval = setInterval(()=>{
-            if(autoScrollPaused) return;
+
+        const interval = setInterval(() => {
+            if (autoScrollPaused) return;
+
             scrollAmount += 2;
-            if(scrollAmount >= gallery.scrollWidth - gallery.clientWidth) scrollAmount = 0;
+
+            if (scrollAmount >= gallery.scrollWidth - gallery.clientWidth) {
+                scrollAmount = 0;
+            }
+
             gallery.scrollTo({ left: scrollAmount });
         }, 20);
+
         autoScrollIntervals.push(interval);
     });
 }
@@ -134,105 +149,97 @@ function autoScrollGallery() {
 /* =========================
    GALERİ RENDER
 ========================= */
-function renderGallery(lang=currentLang) {
+function renderGallery(lang = currentLang) {
     const containers = {
-        belirli: document.getElementById(lang==="tr"?"gallery-belirli":"gallery-belirli-en"),
-        bayram: document.getElementById(lang==="tr"?"gallery-bayramlar":"gallery-bayramlar-en"),
-        okuldisi: document.getElementById(lang==="tr"?"gallery-okuldisi":"gallery-okuldisi-en")
+        belirli: document.getElementById(lang === "tr" ? "gallery-belirli" : "gallery-belirli-en"),
+        bayram: document.getElementById(lang === "tr" ? "gallery-bayramlar" : "gallery-bayramlar-en"),
+        okuldisi: document.getElementById(lang === "tr" ? "gallery-okuldisi" : "gallery-okuldisi-en")
     };
 
-    // Mevcut içeriği temizle
-    Object.values(containers).forEach(c=>{if(c) c.innerHTML="";});
+    if (!containers.belirli || !containers.bayram || !containers.okuldisi) {
+        console.warn("Gallery containers missing in DOM");
+        return;
+    }
 
-    Object.entries(events).forEach(([eventId,event])=>{
+    Object.values(containers).forEach(c => c.innerHTML = "");
+
+    Object.entries(events).forEach(([eventId, event]) => {
         const container = containers[event.category];
-        if(!container) return;
+        if (!container) return;
 
         const card = document.createElement("div");
         card.className = "card";
-        card.onclick = ()=> openModal(card,eventId,0);
+        card.onclick = () => openModal(card, eventId, 0);
 
         const img = document.createElement("img");
         img.src = event.images[0];
+        img.loading = "lazy";
 
         const overlay = document.createElement("div");
         overlay.className = "overlay";
         overlay.innerText = event.title[lang];
 
-        card.append(img, overlay);
+        card.appendChild(img);
+        card.appendChild(overlay);
+
         container.appendChild(card);
     });
 }
 
 /* =========================
-   DETAY SAYFASINA YÖNLENDİRME
+   DETAIL NAV
 ========================= */
 function goToDetailPage() {
-    if(selectedEventId){
+    if (selectedEventId) {
         window.location.href = `detail.html?id=${selectedEventId}&lang=${currentLang}`;
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const belirli = document.getElementById("gallery-belirli");
-  const bayram = document.getElementById("gallery-bayramlar");
-  const okul = document.getElementById("gallery-okuldisi");
-
-  Object.entries(events).forEach(([key, item]) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerText = item.title.tr;
-
-    if (item.category === "belirli") belirli.appendChild(card);
-    if (item.category === "bayram") bayram.appendChild(card);
-    if (item.category === "okuldisi") okul.appendChild(card);
-  });
-});
-
 /* =========================
-   SAYFA YÜKLENİNCE
+   INIT
 ========================= */
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const eventId = params.get("id");
     const langParam = params.get("lang");
 
-    // Dil belirleme
-    if(langParam==="tr"||langParam==="en") currentLang=langParam;
-    else {
-        const savedLang = localStorage.getItem("selectedLang");
-        if(savedLang==="tr"||savedLang==="en") currentLang=savedLang;
-    }
+    const savedLang = localStorage.getItem("selectedLang");
+
+    if (langParam === "tr" || langParam === "en") currentLang = langParam;
+    else if (savedLang === "tr" || savedLang === "en") currentLang = savedLang;
 
     setLanguage(currentLang);
     autoScrollGallery();
 
-    // Mouse hover ile auto-scroll durdur
-    document.querySelectorAll(".auto-scroll").forEach(gallery=>{
-        gallery.addEventListener("mouseenter", ()=> autoScrollPaused=true);
-        gallery.addEventListener("mouseleave", ()=> autoScrollPaused=false);
+    document.querySelectorAll(".auto-scroll").forEach(gallery => {
+        gallery.addEventListener("mouseenter", () => autoScrollPaused = true);
+        gallery.addEventListener("mouseleave", () => autoScrollPaused = false);
     });
 
-    // Detay sayfası içerik doldurma
-    if(eventId && events[eventId]){
+    if (eventId && events[eventId]) {
         const event = events[eventId];
+
         const titleEl = document.getElementById("detailTitle");
         const textEl = document.getElementById("detailText");
         const galleryEl = document.getElementById("detailGallery");
 
-        if(titleEl) titleEl.innerText = event.title[currentLang];
-        if(textEl) textEl.innerText = event.longDesc[currentLang];
+        if (titleEl) titleEl.innerText = event.title[currentLang];
+        if (textEl) textEl.innerText = event.longDesc[currentLang];
 
-        if(galleryEl){
+        if (galleryEl) {
             galleryEl.innerHTML = "";
-            event.images.forEach((src,i)=>{
+
+            event.images.forEach((src, i) => {
                 const img = document.createElement("img");
                 img.src = src;
-                img.style.width="250px";
-                img.style.margin="10px";
-                img.style.borderRadius="12px";
-                img.style.cursor="pointer";
-                img.onclick = ()=> openModal(null,eventId,i);
+                img.loading = "lazy";
+                img.style.width = "250px";
+                img.style.margin = "10px";
+                img.style.borderRadius = "12px";
+                img.style.cursor = "pointer";
+
+                img.onclick = () => openModal(null, eventId, i);
+
                 galleryEl.appendChild(img);
             });
         }
