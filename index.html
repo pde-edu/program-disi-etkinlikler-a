@@ -166,63 +166,61 @@
     <button id="prevBtn" onclick="prevImage()">&#10094; Önceki</button>
     <button id="nextBtn" onclick="nextImage()">Sonraki &#10095;</button>
 </div>
-</div>
+
 <!-- EVENTS VE SCRIPT -->
 <script>
 // EVENTS OBJESİ
-const events = {
+const events ={
 
   // =========================
   // BELİRLİ GÜN VE HAFTALAR
   // =========================
   etkinlik1: { category: "belirli", title: { tr: "Etkinlik 1", en: "Activity 1" }, shortDesc: { tr: "Belirli gün etkinliği 1.", en: "Special day activity 1." }, longDesc: { tr: "Detaylı açıklama 1.", en: "Detailed description 1." }, images: ["assets/images/etkinlik1-1.jpg"] },
-  etkinlik2: { category: "belirli", title: { tr: "Etkinlik 2", en: "Activity 2" }, shortDesc: { tr: "Belirli gün etkinliği 2.", en: "Special day activity 2." }, longDesc: { tr: "Detaylı açıklama 2.", en: "Detailed description 2." }, images: ["assets/images/etkinlik2-1.jpg"] },
-  etkinlik3: { category: "belirli", title: { tr: "Etkinlik 3", en: "Activity 3" }, shortDesc: { tr: "Belirli gün etkinliği 3.", en: "Special day activity 3." }, longDesc: { tr: "Detaylı açıklama 3.", en: "Detailed description 3." }, images: ["assets/images/etkinlik3-1.jpg"] },
-  etkinlik4: { category: "belirli", title: { tr: "Etkinlik 4", en: "Activity 4" }, shortDesc: { tr: "Belirli gün etkinliği 4.", en: "Special day activity 4." }, longDesc: { tr: "Detaylı açıklama 4.", en: "Detailed description 4." }, images: ["assets/images/etkinlik4-1.jpg"] },
-  etkinlik5: { category: "belirli", title: { tr: "Etkinlik 5", en: "Activity 5" }, shortDesc: { tr: "Belirli gün etkinliği 5.", en: "Special day activity 5." }, longDesc: { tr: "Detaylı açıklama 5.", en: "Detailed description 5." }, images: ["assets/images/etkinlik5-1.jpg"] },
-  etkinlik6: { category: "belirli", title: { tr: "Etkinlik 6", en: "Activity 6" }, shortDesc: { tr: "Belirli gün etkinliği 6.", en: "Special day activity 6." }, longDesc: { tr: "Detaylı açıklama 6.", en: "Detailed description 6." }, images: ["assets/images/etkinlik6-1.jpg"] },
-  etkinlik7: { category: "belirli", title: { tr: "Etkinlik 7", en: "Activity 7" }, shortDesc: { tr: "Belirli gün etkinliği 7.", en: "Special day activity 7." }, longDesc: { tr: "Detaylı açıklama 7.", en: "Detailed description 7." }, images: ["assets/images/etkinlik7-1.jpg"] },
-  etkinlik8: { category: "belirli", title: { tr: "Etkinlik 8", en: "Activity 8" }, shortDesc: { tr: "Belirli gün etkinliği 8.", en: "Special day activity 8." }, longDesc: { tr: "Detaylı açıklama 8.", en: "Detailed description 8." }, images: ["assets/images/etkinlik8-1.jpg"] },
-  etkinlik9: { category: "belirli", title: { tr: "Etkinlik 9", en: "Activity 9" }, shortDesc: { tr: "Belirli gün etkinliği 9.", en: "Special day activity 9." }, longDesc: { tr: "Detaylı açıklama 9.", en: "Detailed description 9." }, images: ["assets/images/etkinlik9-1.jpg"] },
-  etkinlik10: { category: "belirli", title: { tr: "Etkinlik 10", en: "Activity 10" }, shortDesc: { tr: "Belirli gün etkinliği 10.", en: "Special day activity 10." }, longDesc: { tr: "Detaylı açıklama 10.", en: "Detailed description 10." }, images: ["assets/images/etkinlik10-1.jpg"] },
-  etkinlik11: { category: "belirli", title: { tr: "Etkinlik 11", en: "Activity 11" }, shortDesc: { tr: "Belirli gün etkinliği 11.", en: "Special day activity 11." }, longDesc: { tr: "Detaylı açıklama 11.", en: "Detailed description 11." }, images: ["assets/images/etkinlik11-1.jpg"] },
-  etkinlik12: { category: "belirli", title: { tr: "Etkinlik 12", en: "Activity 12" }, shortDesc: { tr: "Belirli gün etkinliği 12.", en: "Special day activity 12." }, longDesc: { tr: "Detaylı açıklama 12.", en: "Detailed description 12." }, images: ["assets/images/etkinlik12-1.jpg"] },
+  etkinlik2: { category: "belirli", title: { tr: "Etkinlik 2", en: "Activity 2" }, shortDesc: { tr: "Belirli gün etkinliği 2.", en: "Special day activity 2." }, longDesc: { tr: "Detaylı açıklama 2.", en: "Detailed description 2." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik3: { category: "belirli", title: { tr: "Etkinlik 3", en: "Activity 3" }, shortDesc: { tr: "Belirli gün etkinliği 3.", en: "Special day activity 3." }, longDesc: { tr: "Detaylı açıklama 3.", en: "Detailed description 3." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik4: { category: "belirli", title: { tr: "Etkinlik 4", en: "Activity 4" }, shortDesc: { tr: "Belirli gün etkinliği 4.", en: "Special day activity 4." }, longDesc: { tr: "Detaylı açıklama 4.", en: "Detailed description 4." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik5: { category: "belirli", title: { tr: "Etkinlik 5", en: "Activity 5" }, shortDesc: { tr: "Belirli gün etkinliği 5.", en: "Special day activity 5." }, longDesc: { tr: "Detaylı açıklama 5.", en: "Detailed description 5." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik6: { category: "belirli", title: { tr: "Etkinlik 6", en: "Activity 6" }, shortDesc: { tr: "Belirli gün etkinliği 6.", en: "Special day activity 6." }, longDesc: { tr: "Detaylı açıklama 6.", en: "Detailed description 6." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik7: { category: "belirli", title: { tr: "Etkinlik 7", en: "Activity 7" }, shortDesc: { tr: "Belirli gün etkinliği 7.", en: "Special day activity 7." }, longDesc: { tr: "Detaylı açıklama 7.", en: "Detailed description 7." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik8: { category: "belirli", title: { tr: "Etkinlik 8", en: "Activity 8" }, shortDesc: { tr: "Belirli gün etkinliği 8.", en: "Special day activity 8." }, longDesc: { tr: "Detaylı açıklama 8.", en: "Detailed description 8." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik9: { category: "belirli", title: { tr: "Etkinlik 9", en: "Activity 9" }, shortDesc: { tr: "Belirli gün etkinliği 9.", en: "Special day activity 9." }, longDesc: { tr: "Detaylı açıklama 9.", en: "Detailed description 9." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik10: { category: "belirli", title: { tr: "Etkinlik 10", en: "Activity 10" }, shortDesc: { tr: "Belirli gün etkinliği 10.", en: "Special day activity 10." }, longDesc: { tr: "Detaylı açıklama 10.", en: "Detailed description 10." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik11: { category: "belirli", title: { tr: "Etkinlik 11", en: "Activity 11" }, shortDesc: { tr: "Belirli gün etkinliği 11.", en: "Special day activity 11." }, longDesc: { tr: "Detaylı açıklama 11.", en: "Detailed description 11." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  etkinlik12: { category: "belirli", title: { tr: "Etkinlik 12", en: "Activity 12" }, shortDesc: { tr: "Belirli gün etkinliği 12.", en: "Special day activity 12." }, longDesc: { tr: "Detaylı açıklama 12.", en: "Detailed description 12." }, images: ["assets/images/etkinlik1-1.jpg"] },
 
   // =========================
   // BAYRAMLAR
   // =========================
-  bayram1: { category: "bayram", title: { tr: "Bayram Etkinlik 1", en: "Holiday Activity 1" }, shortDesc: { tr: "Bayram etkinliği 1.", en: "Holiday activity 1." }, longDesc: { tr: "Detaylı açıklama 1.", en: "Detailed description 1." }, images: ["assets/images/bayram1.jpg"] },
-  bayram2: { category: "bayram", title: { tr: "Bayram Etkinlik 2", en: "Holiday Activity 2" }, shortDesc: { tr: "Bayram etkinliği 2.", en: "Holiday activity 2." }, longDesc: { tr: "Detaylı açıklama 2.", en: "Detailed description 2." }, images: ["assets/images/bayram2.jpg"] },
-  bayram3: { category: "bayram", title: { tr: "Bayram Etkinlik 3", en: "Holiday Activity 3" }, shortDesc: { tr: "Bayram etkinliği 3.", en: "Holiday activity 3." }, longDesc: { tr: "Detaylı açıklama 3.", en: "Detailed description 3." }, images: ["assets/images/bayram3.jpg"] },
-  bayram4: { category: "bayram", title: { tr: "Bayram Etkinlik 4", en: "Holiday Activity 4" }, shortDesc: { tr: "Bayram etkinliği 4.", en: "Holiday activity 4." }, longDesc: { tr: "Detaylı açıklama 4.", en: "Detailed description 4." }, images: ["assets/images/bayram4.jpg"] },
-  bayram5: { category: "bayram", title: { tr: "Bayram Etkinlik 5", en: "Holiday Activity 5" }, shortDesc: { tr: "Bayram etkinliği 5.", en: "Holiday activity 5." }, longDesc: { tr: "Detaylı açıklama 5.", en: "Detailed description 5." }, images: ["assets/images/bayram5.jpg"] },
-  bayram6: { category: "bayram", title: { tr: "Bayram Etkinlik 6", en: "Holiday Activity 6" }, shortDesc: { tr: "Bayram etkinliği 6.", en: "Holiday activity 6." }, longDesc: { tr: "Detaylı açıklama 6.", en: "Detailed description 6." }, images: ["assets/images/bayram6.jpg"] },
-  bayram7: { category: "bayram", title: { tr: "Bayram Etkinlik 7", en: "Holiday Activity 7" }, shortDesc: { tr: "Bayram etkinliği 7.", en: "Holiday activity 7." }, longDesc: { tr: "Detaylı açıklama 7.", en: "Detailed description 7." }, images: ["assets/images/bayram7.jpg"] },
-  bayram8: { category: "bayram", title: { tr: "Bayram Etkinlik 8", en: "Holiday Activity 8" }, shortDesc: { tr: "Bayram etkinliği 8.", en: "Holiday activity 8." }, longDesc: { tr: "Detaylı açıklama 8.", en: "Detailed description 8." }, images: ["assets/images/bayram8.jpg"] },
-  bayram9: { category: "bayram", title: { tr: "Bayram Etkinlik 9", en: "Holiday Activity 9" }, shortDesc: { tr: "Bayram etkinliği 9.", en: "Holiday activity 9." }, longDesc: { tr: "Detaylı açıklama 9.", en: "Detailed description 9." }, images: ["assets/images/bayram9.jpg"] },
-  bayram10: { category: "bayram", title: { tr: "Bayram Etkinlik 10", en: "Holiday Activity 10" }, shortDesc: { tr: "Bayram etkinliği 10.", en: "Holiday activity 10." }, longDesc: { tr: "Detaylı açıklama 10.", en: "Detailed description 10." }, images: ["assets/images/bayram10.jpg"] },
-  bayram11: { category: "bayram", title: { tr: "Bayram Etkinlik 11", en: "Holiday Activity 11" }, shortDesc: { tr: "Bayram etkinliği 11.", en: "Holiday activity 11." }, longDesc: { tr: "Detaylı açıklama 11.", en: "Detailed description 11." }, images: ["assets/images/bayram11.jpg"] },
-  bayram12: { category: "bayram", title: { tr: "Bayram Etkinlik 12", en: "Holiday Activity 12" }, shortDesc: { tr: "Bayram etkinliği 12.", en: "Holiday activity 12." }, longDesc: { tr: "Detaylı açıklama 12.", en: "Detailed description 12." }, images: ["assets/images/bayram12.jpg"] },
-
+  bayram1: { category: "bayram", title: { tr: "Bayram Etkinlik 1", en: "Holiday Activity 1" }, shortDesc: { tr: "Bayram etkinliği 1.", en: "Holiday activity 1." }, longDesc: { tr: "Detaylı açıklama 1.", en: "Detailed description 1." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram2: { category: "bayram", title: { tr: "Bayram Etkinlik 2", en: "Holiday Activity 2" }, shortDesc: { tr: "Bayram etkinliği 2.", en: "Holiday activity 2." }, longDesc: { tr: "Detaylı açıklama 2.", en: "Detailed description 2." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram3: { category: "bayram", title: { tr: "Bayram Etkinlik 3", en: "Holiday Activity 3" }, shortDesc: { tr: "Bayram etkinliği 3.", en: "Holiday activity 3." }, longDesc: { tr: "Detaylı açıklama 3.", en: "Detailed description 3." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram4: { category: "bayram", title: { tr: "Bayram Etkinlik 4", en: "Holiday Activity 4" }, shortDesc: { tr: "Bayram etkinliği 4.", en: "Holiday activity 4." }, longDesc: { tr: "Detaylı açıklama 4.", en: "Detailed description 4." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram5: { category: "bayram", title: { tr: "Bayram Etkinlik 5", en: "Holiday Activity 5" }, shortDesc: { tr: "Bayram etkinliği 5.", en: "Holiday activity 5." }, longDesc: { tr: "Detaylı açıklama 5.", en: "Detailed description 5." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram6: { category: "bayram", title: { tr: "Bayram Etkinlik 6", en: "Holiday Activity 6" }, shortDesc: { tr: "Bayram etkinliği 6.", en: "Holiday activity 6." }, longDesc: { tr: "Detaylı açıklama 6.", en: "Detailed description 6." }, images: ["assets/images/etkinlik1-1.jpg"] }, 
+  bayram7: { category: "bayram", title: { tr: "Bayram Etkinlik 7", en: "Holiday Activity 7" }, shortDesc: { tr: "Bayram etkinliği 7.", en: "Holiday activity 7." }, longDesc: { tr: "Detaylı açıklama 7.", en: "Detailed description 7." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram8: { category: "bayram", title: { tr: "Bayram Etkinlik 8", en: "Holiday Activity 8" }, shortDesc: { tr: "Bayram etkinliği 8.", en: "Holiday activity 8." }, longDesc: { tr: "Detaylı açıklama 8.", en: "Detailed description 8." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram9: { category: "bayram", title: { tr: "Bayram Etkinlik 9", en: "Holiday Activity 9" }, shortDesc: { tr: "Bayram etkinliği 9.", en: "Holiday activity 9." }, longDesc: { tr: "Detaylı açıklama 9.", en: "Detailed description 9." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram10: { category: "bayram", title: { tr: "Bayram Etkinlik 10", en: "Holiday Activity 10" }, shortDesc: { tr: "Bayram etkinliği 10.", en: "Holiday activity 10." }, longDesc: { tr: "Detaylı açıklama 10.", en: "Detailed description 10." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram11: { category: "bayram", title: { tr: "Bayram Etkinlik 11", en: "Holiday Activity 11" }, shortDesc: { tr: "Bayram etkinliği 11.", en: "Holiday activity 11." }, longDesc: { tr: "Detaylı açıklama 11.", en: "Detailed description 11." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  bayram12: { category: "bayram", title: { tr: "Bayram Etkinlik 12", en: "Holiday Activity 12" }, shortDesc: { tr: "Bayram etkinliği 12.", en: "Holiday activity 12." }, longDesc: { tr: "Detaylı açıklama 12.", en: "Detailed description 12." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  
   // =========================
-  // OKUL DIŞI ÖĞRENME ORTAMLARI
+  // OKUL DIŞI ETKİNLİKLER
   // =========================
-  okul1: { category: "okuldisi", title: { tr: "Okul Dışı 1", en: "Out of School 1" }, shortDesc: { tr: "Okul dışı etkinlik 1.", en: "Out-of-school activity 1." }, longDesc: { tr: "Detaylı açıklama 1.", en: "Detailed description 1." }, images: ["assets/images/okul1.jpg"] },
-  okul2: { category: "okuldisi", title: { tr: "Okul Dışı 2", en: "Out of School 2" }, shortDesc: { tr: "Okul dışı etkinlik 2.", en: "Out-of-school activity 2." }, longDesc: { tr: "Detaylı açıklama 2.", en: "Detailed description 2." }, images: ["assets/images/okul2.jpg"] },
-  okul3: { category: "okuldisi", title: { tr: "Okul Dışı 3", en: "Out of School 3" }, shortDesc: { tr: "Okul dışı etkinlik 3.", en: "Out-of-school activity 3." }, longDesc: { tr: "Detaylı açıklama 3.", en: "Detailed description 3." }, images: ["assets/images/okul3.jpg"] },
-  okul4: { category: "okuldisi", title: { tr: "Okul Dışı 4", en: "Out of School 4" }, shortDesc: { tr: "Okul dışı etkinlik 4.", en: "Out-of-school activity 4." }, longDesc: { tr: "Detaylı açıklama 4.", en: "Detailed description 4." }, images: ["assets/images/okul4.jpg"] },
-  okul5: { category: "okuldisi", title: { tr: "Okul Dışı 5", en: "Out of School 5" }, shortDesc: { tr: "Okul dışı etkinlik 5.", en: "Out-of-school activity 5." }, longDesc: { tr: "Detaylı açıklama 5.", en: "Detailed description 5." }, images: ["assets/images/okul5.jpg"] },
-  okul6: { category: "okuldisi", title: { tr: "Okul Dışı 6", en: "Out of School 6" }, shortDesc: { tr: "Okul dışı etkinlik 6.", en: "Out-of-school activity 6." }, longDesc: { tr: "Detaylı açıklama 6.", en: "Detailed description 6." }, images: ["assets/images/okul6.jpg"] },
-  okul7: { category: "okuldisi", title: { tr: "Okul Dışı 7", en: "Out of School 7" }, shortDesc: { tr: "Okul dışı etkinlik 7.", en: "Out-of-school activity 7." }, longDesc: { tr: "Detaylı açıklama 7.", en: "Detailed description 7." }, images: ["assets/images/okul7.jpg"] },
-  okul8: { category: "okuldisi", title: { tr: "Okul Dışı 8", en: "Out of School 8" }, shortDesc: { tr: "Okul dışı etkinlik 8.", en: "Out-of-school activity 8." }, longDesc: { tr: "Detaylı açıklama 8.", en: "Detailed description 8." }, images: ["assets/images/okul8.jpg"] },
-  okul9: { category: "okuldisi", title: { tr: "Okul Dışı 9", en: "Out of School 9" }, shortDesc: { tr: "Okul dışı etkinlik 9.", en: "Out-of-school activity 9." }, longDesc: { tr: "Detaylı açıklama 9.", en: "Detailed description 9." }, images: ["assets/images/okul9.jpg"] },
-  okul10: { category: "okuldisi", title: { tr: "Okul Dışı 10", en: "Out of School 10" }, shortDesc: { tr: "Okul dışı etkinlik 10.", en: "Out-of-school activity 10." }, longDesc: { tr: "Detaylı açıklama 10.", en: "Detailed description 10." }, images: ["assets/images/okul10.jpg"] },
-  okul11: { category: "okuldisi", title: { tr: "Okul Dışı 11", en: "Out of School 11" }, shortDesc: { tr: "Okul dışı etkinlik 11.", en: "Out-of-school activity 11." }, longDesc: { tr: "Detaylı açıklama 11.", en: "Detailed description 11." }, images: ["assets/images/okul11.jpg"] },
-  okul12: { category: "okuldisi", title: { tr: "Okul Dışı 12", en: "Out of School 12" }, shortDesc: { tr: "Okul dışı etkinlik 12.", en: "Out-of-school activity 12." }, longDesc: { tr: "Detaylı açıklama 12.", en: "Detailed description 12." }, images: ["assets/images/okul12.jpg"] }
-
+  okul1: { category: "okuldisi", title: { tr: "Okul Dışı 1", en: "Out of School 1" }, shortDesc: { tr: "Okul dışı etkinlik 1.", en: "Out-of-school activity 1." }, longDesc: { tr: "Detaylı açıklama 1.", en: "Detailed description 1." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul2: { category: "okuldisi", title: { tr: "Okul Dışı 2", en: "Out of School 2" }, shortDesc: { tr: "Okul dışı etkinlik 2.", en: "Out-of-school activity 2." }, longDesc: { tr: "Detaylı açıklama 2.", en: "Detailed description 2." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul3: { category: "okuldisi", title: { tr: "Okul Dışı 3", en: "Out of School 3" }, shortDesc: { tr: "Okul dışı etkinlik 3.", en: "Out-of-school activity 3." }, longDesc: { tr: "Detaylı açıklama 3.", en: "Detailed description 3." }, images: ["assets/images/etkinlik1-1.jpg"] },  
+  okul4: { category: "okuldisi", title: { tr: "Okul Dışı 4", en: "Out of School 4" }, shortDesc: { tr: "Okul dışı etkinlik 4.", en: "Out-of-school activity 4." }, longDesc: { tr: "Detaylı açıklama 4.", en: "Detailed description 4." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul5: { category: "okuldisi", title: { tr: "Okul Dışı 5", en: "Out of School 5" }, shortDesc: { tr: "Okul dışı etkinlik 5.", en: "Out-of-school activity 5." }, longDesc: { tr: "Detaylı açıklama 5.", en: "Detailed description 5." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul6: { category: "okuldisi", title: { tr: "Okul Dışı 6", en: "Out of School 6" }, shortDesc: { tr: "Okul dışı etkinlik 6.", en: "Out-of-school activity 6." }, longDesc: { tr: "Detaylı açıklama 6.", en: "Detailed description 6." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul7: { category: "okuldisi", title: { tr: "Okul Dışı 7", en: "Out of School 7" }, shortDesc: { tr: "Okul dışı etkinlik 7.", en: "Out-of-school activity 7." }, longDesc: { tr: "Detaylı açıklama 7.", en: "Detailed description 7." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul8: { category: "okuldisi", title: { tr: "Okul Dışı 8", en: "Out of School 8" }, shortDesc: { tr: "Okul dışı etkinlik 8.", en: "Out-of-school activity 8." }, longDesc: { tr: "Detaylı açıklama 8.", en: "Detailed description 8." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul9: { category: "okuldisi", title: { tr: "Okul Dışı 9", en: "Out of School 9" }, shortDesc: { tr: "Okul dışı etkinlik 9.", en: "Out-of-school activity 9." }, longDesc: { tr: "Detaylı açıklama 9.", en: "Detailed description 9." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul10: { category: "okuldisi", title: { tr: "Okul Dışı 10", en: "Out of School 10" }, shortDesc: { tr: "Okul dışı etkinlik 10.", en: "Out-of-school activity 10." }, longDesc: { tr: "Detaylı açıklama 10.", en: "Detailed description 10." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul11: { category: "okuldisi", title: { tr: "Okul Dışı 11", en: "Out of School 11" }, shortDesc: { tr: "Okul dışı etkinlik 11.", en: "Out-of-school activity 11." }, longDesc: { tr: "Detaylı açıklama 11.", en: "Detailed description 11." }, images: ["assets/images/etkinlik1-1.jpg"] },
+  okul12: { category: "okuldisi", title: { tr: "Okul Dışı 12", en: "Out of School 12" }, shortDesc: { tr: "Okul dışı etkinlik 12.", en: "Out-of-school activity 12." }, longDesc: { tr: "Detaylı açıklama 12.", en: "Detailed description 12." }, images: ["assets/images/etkinlik1-1.jpg"] }
 };
-</script>
-
+  </script>
 <script src="script.js"></script>
 </body>
 </html>
